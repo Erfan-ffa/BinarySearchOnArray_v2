@@ -1,20 +1,19 @@
-﻿using BinarySearch;
+using BinarySearch;
 
-Console.Write("Key : ");
-int key = Convert.ToInt32(Console.ReadLine());
+int key;
 
 do 
 {
+    Console.Write("Key : ");
+    key = int.Parse(Console.ReadLine());
+
     RecursiveBinarySearch x = new RecursiveBinarySearch();
-    x.BinarySearch(key, 0, 9);
+    x.BinarySearch(key, 0, 7);
 
     Console.WriteLine("-----------------------------");
 
     IterativeBinarySearch a = new IterativeBinarySearch();
     a.BinarySearchs(key);
 
-
-    Console.Write("Key : ");
-    key = Convert.ToInt32(Console.ReadLine());
 
 } while (key != -50);
