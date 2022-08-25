@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace BinarySearch
 {
     public class RecursiveBinarySearch
     {
-        int[] arr = new int[] { 10, 22, 32, 43, 53, 65, 73, 81 };
+        int[] arr = new int[] { 0, 1, 2, 3, 4, 12, 45, 127, 544 };
         public void BinarySearch(int key, int first, int last)
         {
             int middle = (first + last) / 2;
@@ -17,6 +17,10 @@ namespace BinarySearch
                 Console.WriteLine(middle);
             }
             else if (first == last)
+            {
+                Console.WriteLine("Item Not Found");
+            }
+            else if (first > last)
             {
                 Console.WriteLine("Item Not Found");
             }
