@@ -1,37 +1,51 @@
-namespace FindingTheIndexOfElementInArrayWithBinarySearch
+namespace BinarySearch
 {
-    public class RecursiveFinder
+    public class IterativeBinarySearch
     {
-        public int RecursiveFind(int[] array, int first, int last, int key)
+        int[] arr = new int[] { 1, 2, 3, 4 };
+        int first;
+        int last;
+        int middle;
+        int counter = 0;
+
+        public IterativeBinarySearch()
         {
-            int middle = (first + last) / 2;
-            if (first > last)
+            last = arr.Length - 1;
+            first = 0;
+            middle = (first + last) / 2;
+        }
+
+        public void BinarySearchs(int key)
+        {
+            while (true)
             {
-                return 0;
-            }
-            else if (first == last)
-            {
-                if (key < array[first])
+                Console.WriteLine("-" + counter);
+
+                if (key == arr[middle])
                 {
-                    return last;
+                    counter++;
+                    Console.WriteLine(middle);
+                    return;
+                }
+                else if (last == first)
+                {
+                    Console.WriteLine("Item Not Found!");
+                    return;
+                }
+                else if (key > arr[middle])
+                {
+                    counter++;
+                    first = middle + 1;
+                    middle = (first + last) / 2;
                 }
                 else
                 {
-                    return last + 1;
+                    counter++;
+                    last = middle - 1;
+                    middle = (first + last) / 2;
                 }
+
             }
-            else if (key == array[middle])
-            {
-                return middle + 1;
-            }
-            else if (key > array[middle])
-            {
-                return RecursiveFind(array, middle + 1, last, key);
-            }
-            else
-            {
-                return RecursiveFind(array, first, middle - 1, key);
-            }
-        }
+        } 
     }
 }
