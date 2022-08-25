@@ -6,7 +6,6 @@ namespace BinarySearch
         int first;
         int last;
         int middle;
-        int counter = 0;
 
         public IterativeBinarySearch()
         {
@@ -23,7 +22,6 @@ namespace BinarySearch
 
                 if (key == arr[middle])
                 {
-                    counter++;
                     Console.WriteLine(middle);
                     return;
                 }
@@ -34,13 +32,11 @@ namespace BinarySearch
                 }
                 else if (key > arr[middle])
                 {
-                    counter++;
                     first = middle + 1;
                     middle = (first + last) / 2;
                 }
                 else
                 {
-                    counter++;
                     last = middle - 1;
                     middle = (first + last) / 2;
                 }
