@@ -1,36 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BinarySearch
+namespace FindingTheIndexOfElementInArrayWithBinarySearch
 {
-    public class RecursiveBinarySearch
+    public class RecursiveFinder
     {
-        int[] arr = new int[] { 0, 1, 2, 3, 4, 12, 45, 127, 544 };
-        public void BinarySearch(int key, int first, int last)
+        public int RecursiveFind(int[] array, int first, int last, int key)
         {
             int middle = (first + last) / 2;
-            if (arr[middle] == key)
+            if (first > last)
             {
-                Console.WriteLine(middle);
+                return 0;
             }
             else if (first == last)
             {
-                Console.WriteLine("Item Not Found");
+                if (key < array[first])
+                {
+                    return last;
+                }
+                else
+                {
+                    return last + 1;
+                }
             }
-            else if (first > last)
+            else if (key == array[middle])
             {
-                Console.WriteLine("Item Not Found");
+                return middle + 1;
             }
-            else if (key > arr[middle])
+            else if (key > array[middle])
             {
-                BinarySearch(key, middle + 1, last);
+                return RecursiveFind(array, middle + 1, last, key);
             }
             else
             {
-                BinarySearch(key, first, middle - 1);
+                return RecursiveFind(array, first, middle - 1, key);
             }
         }
     }
